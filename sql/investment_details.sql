@@ -1,11 +1,11 @@
 SELECT
   (SELECT b2.real_name
-  FROM puhui8.TAU_USER_INFO b2
+  FROM xxx.TAU_USER_INFO b2
   WHERE a.RECOMMENDER_MSG = b2.RECOMMEND_NO
-  AND instr('潘先前,张远来,王小婷,刘晓琴,邓启超,莫志荣,李春明,洪晓军,吴信广,车奔驰,赖炳元,李婉雁',b2.real_name) <> 0
+  AND instr('xxx,xxx,xxx',b2.real_name) <> 0
   ) 理财顾问,
   (SELECT b2.real_name
-  FROM puhui8.TAU_USER_INFO b2
+  FROM xxx.TAU_USER_INFO b2
   WHERE a.RECOMMENDER_MSG = b2.RECOMMEND_NO
   ) 推荐人姓名,
   b.USER_NAME 客户用户名,
@@ -16,10 +16,10 @@ SELECT
   NVL(c.OPERATE_MONEY,0) 客户投资金额,
   d.LIFE_OF_LOAN
   || DECODE(d.TERM_TYPE,0,'月',1,'天','') 投资期长
-FROM puhui8.TAU_USER_REGISTRY a ,
-  puhui8.TAU_USER_INFO b,
-  puhui8.TAA_CAPITAL_RECORD c,
-  puhui8.TAP_LOAN_INFO d
+FROM xxx.TAU_USER_REGISTRY a ,
+  xxx.TAU_USER_INFO b,
+  xxx.TAA_CAPITAL_RECORD c,
+  xxx.TAP_LOAN_INFO d
 WHERE a.USER_ID     = b.USER_ID
 AND c.USER_ID       = a.USER_ID
 AND c.TYPE_CODE     = '6'
