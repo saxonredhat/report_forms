@@ -1,7 +1,7 @@
 select 
 A.id 订单号,
-(select user_name from puhui8.tau_user_info where USER_ID=A.user_id) 用户名,
-(select real_name from puhui8.tau_user_info where USER_ID=A.user_id) 客户姓名,
+(select user_name from xxx.tau_user_info where USER_ID=A.user_id) 用户名,
+(select real_name from xxx.tau_user_info where USER_ID=A.user_id) 客户姓名,
 case 
 when A.TYPE_CODE = '1' THEN '充值'
 when A.TYPE_CODE = '2' THEN '提现'
