@@ -1,0 +1,2 @@
+select LOCATION,CHECK_CODE from YS_PHONE_LOCATION where PHONENUM='&1';
+exit;
