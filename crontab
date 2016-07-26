@@ -15,7 +15,6 @@
 #每天资金交易记录
 59 8 * * * /bin/bash /home/oracle/scripts/bin/main_daily.sh -1 sql/capital_record.sql 资金交易记录
 
-
 #每天发送报表邮件
 0 9 * * * /bin/bash /home/oracle/scripts/bin/send_report_daily.sh -1
 
@@ -27,7 +26,6 @@
 #==================每月一号=====================
 #上一个月投资明细统计信息
 50 8 1 * * /bin/bash /home/oracle/scripts/bin/main_monthly.sh -1 sql/investment_details.sql 投资明细
-
 
 #每月发送的报表邮件
 55 8 1 * * /bin/bash /home/oracle/scripts/bin/send_report_monthly.sh
