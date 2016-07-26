@@ -1,0 +1,33 @@
+#===================每天======================
+#获取昨天的新注册用户的手机号
+30 8 * * * /bin/bash /home/oracle/scripts/bin/getPhone.sh -30
+30 7 * * * /bin/bash /home/oracle/scripts/bin/getIp.sh -30
+
+#获取手机的归属地以及运营商
+35,40,45 8 * * * /bin/bash /home/oracle/scripts/bin/getPhoneZone.sh
+#10,20,30,40,50 */1  * * * /bin/bash /home/oracle/scripts/bin/getMissPhoneZone.sh
+
+#每天注册、提现、新投资的统计信息
+56 8 * * * /bin/bash /home/oracle/scripts/bin/main_daily.sh -1 sql/register.sql 注册
+57 8 * * * /bin/bash /home/oracle/scripts/bin/main_daily.sh -1 sql/withdraw.sql 提现
+58 8 * * * /bin/bash /home/oracle/scripts/bin/main_daily.sh -1 sql/new_investment.sql 新投资
+
+#每天资金交易记录
+59 8 * * * /bin/bash /home/oracle/scripts/bin/main_daily.sh -1 sql/capital_record.sql 资金交易记录
+
+
+#每天发送报表邮件
+0 9 * * * /bin/bash /home/oracle/scripts/bin/send_report_daily.sh -1
+
+#==================每周一======================
+#上一周资金交易记录
+30 8 * * 1 /bin/bash /home/oracle/scripts/bin/main_weekly.sh -1 sql/capital_record.sql 资金交易记录
+35 8 * * 1 /bin/bash /home/oracle/scripts/bin/send_report_weekly.sh
+
+#==================每月一号=====================
+#上一个月投资明细统计信息
+50 8 1 * * /bin/bash /home/oracle/scripts/bin/main_monthly.sh -1 sql/investment_details.sql 投资明细
+
+
+#每月发送的报表邮件
+55 8 1 * * /bin/bash /home/oracle/scripts/bin/send_report_monthly.sh
