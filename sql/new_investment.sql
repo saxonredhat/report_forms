@@ -10,23 +10,23 @@ SELECT g.user_id 用户id,
           AND t.TYPE_CODE = '6'
           ) 投资总金额,
           (SELECT max(u.record_time)
-          FROM puhui8.TAA_CAPITAL_RECORD u
+          FROM xxx.TAA_CAPITAL_RECORD u
           WHERE u.USER_ID = g.user_id
           AND u.TYPE_CODE = '6' 
           ) 最近投资的时间,
           (SELECT min(u.record_time)
-          FROM puhui8.TAA_CAPITAL_RECORD u
+          FROM xxx.TAA_CAPITAL_RECORD u
           WHERE u.USER_ID = g.user_id
           AND u.TYPE_CODE = '6' 
           ) 最早投资的时间
-        FROM puhui8.tau_user_info g
+        FROM xxx.tau_user_info g
         WHERE
 	   g.user_id IN (
           (SELECT DISTINCT b.user_id
-          FROM puhui8.TAU_USER_REGISTRY a ,
-            puhui8.TAU_USER_INFO b,
-            puhui8.TAA_CAPITAL_RECORD c,
-            puhui8.TAP_LOAN_INFO d
+          FROM xxx.TAU_USER_REGISTRY a ,
+            xxx.TAU_USER_INFO b,
+            xxx.TAA_CAPITAL_RECORD c,
+            xxx.TAP_LOAN_INFO d
           WHERE a.USER_ID     = b.USER_ID
           AND c.USER_ID       = a.USER_ID
           AND c.TYPE_CODE     = '6'
