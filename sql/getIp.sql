@@ -4,7 +4,7 @@ select DISTINCT
 	THEN REGEXP_SUBSTR(login_ip,'[^,]+',1,1)
 	END IP 
         from
-        puhui8.TAL_USER_LOGIN_LOG a
+        xxx.TAL_USER_LOGIN_LOG a
         where
 	a.login_ip not like '%0:0%'
 	and
